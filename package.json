@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mstallmo/electron-video-player#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.4.11"
+    "electron-prebuilt": "^1.4.11",
+    "express": "^4.14.0"
   }
 }
