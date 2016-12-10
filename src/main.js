@@ -1,11 +1,13 @@
 const electron = require('electron')
 const express = require('express')
 
-const {app, BrowserWindow} = electron
+const {app, BrowserWindow, dialog} = electron
+const ipc = electron.ipcMain
 
 app.on('ready', _ => {
     MainWindow = new BrowserWindow({
-        height: 600,
+        title: 'Video Player',
+        height: 400,
         width: 600
     })
 
@@ -13,5 +15,14 @@ app.on('ready', _ => {
 
     MainWindow.on('close', _=> {
         MainWindow = null
+    })
+})
+
+ipc.on('select-file', _=>{
+    dialog.showOpenDialog(MainWindow, {
+        properties: ['openFiles'],
+        filters: [{name: 'Video', extensions: ['avi', 'mov', 'mp4']}]
+    }, function(fileNames){
+        MainWindow.webContents.send('file-name', fileNames)
     })
 })

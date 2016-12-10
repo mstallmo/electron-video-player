@@ -8,15 +8,14 @@
          <div class="window-content">
             <div class="pane-group">
                 <div class="pane-sm sidebar">
-                    <ul>
-                        <li>Test 1</li>
-                    </ul>
+                    <button class="btn btn-default" id="selectButton">Select File</button>
                 </div>
                 <div class="pane">
-                    <video width="100%" src="test.mp4" controls></video>
+                    <video controls id="video-player"></video>
                 </div>
             </div>
             </div>
         </div>
+        <script>require('./renderer')</script>
     </body>
 </html>
